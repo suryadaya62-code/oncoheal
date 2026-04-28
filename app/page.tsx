@@ -191,7 +191,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen selection:bg-teal selection:text-white">
       {/* Premium Header */}
       <header className="h-20 bg-white/80 backdrop-blur-xl border-b border-slate-100 flex items-center justify-between px-6 lg:px-10 sticky top-0 z-50">
-        <div className="flex items-center gap-3 font-bold text-slate text-xl group cursor-pointer" onClick={() => window.location.reload()}>
+        <div className="flex items-center gap-3 font-bold text-slate text-xl group cursor-pointer" onClick={() => { setActiveMode('booking'); setBookingStep(1); }}>
           <div className="w-9 h-9 flex items-center justify-center border-2 border-teal rounded-xl bg-teal/5 text-teal animate-float shadow-lg shadow-teal/10">
             <Stethoscope size={22} />
           </div>
@@ -233,9 +233,11 @@ export default function Home() {
       </header>
 
       <main className="flex-1 bg-bg p-4 lg:p-10 relative overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-teal/5 rounded-full blur-[100px] -z-10 animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-lavender/5 rounded-full blur-[80px] -z-10" />
+        {/* High-end Mesh Gradient & Blobs */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-teal/5 rounded-full blur-[120px] -z-10 animate-pulse" />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-lavender/5 rounded-full blur-[100px] -z-10" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal/5 rounded-full blur-[100px] -z-10" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] -z-10" />
         
         <AnimatePresence mode="wait">
           {activeMode === 'portal' ? (
@@ -268,17 +270,18 @@ export default function Home() {
               {/* Left Sidebar: Specialists */}
               <motion.aside initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} className="theme-card glass-panel p-8">
                 <div className="section-label mb-8"><UserIcon size={14} /> Leading Specialists</div>
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {doctorsList.map((doc) => (
-                    <button key={doc.name} onClick={() => { setSelectedDoctor(doc); setSelectedSlot(null); }} className={`w-full text-left p-5 rounded-2xl transition-all border-2 ${selectedDoctor.name === doc.name ? 'bg-white border-teal shadow-xl shadow-teal/5' : 'border-transparent hover:bg-white/40'}`}>
-                      <div className="flex items-center gap-4 mb-3">
-                        <div className="w-11 h-11 rounded-2xl bg-slate flex items-center justify-center text-white text-sm font-black shadow-lg">{doc.initials}</div>
+                    <button key={doc.name} onClick={() => { setSelectedDoctor(doc); setSelectedSlot(null); }} className={`w-full text-left p-4 rounded-2xl transition-all border-2 ${selectedDoctor.name === doc.name ? 'bg-white border-teal shadow-xl shadow-teal/5' : 'border-transparent hover:bg-white/40'}`}>
+                      <div className="flex items-center gap-4 mb-2">
+                        <div className="w-12 h-12 rounded-2xl border-2 border-slate-100 overflow-hidden relative shrink-0 shadow-sm">
+                          <Image src={doc.image} alt={doc.name} fill className="object-cover" />
+                        </div>
                         <div>
                           <h3 className="text-sm font-black text-slate leading-none mb-1">{doc.name}</h3>
-                          <p className="text-[10px] text-teal font-black uppercase tracking-widest">{doc.role}</p>
+                          <p className="text-[9px] text-teal font-black uppercase tracking-widest">{doc.role}</p>
                         </div>
                       </div>
-                      <p className="text-[10px] text-text-muted leading-relaxed line-clamp-2 opacity-80">{doc.bio}</p>
                     </button>
                   ))}
                 </div>
