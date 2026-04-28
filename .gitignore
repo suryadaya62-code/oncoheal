@@ -1,8 +1,53 @@
+# dependencies
 node_modules/
+
+# next.js
 .next/
-coverage/
+out/
+
+# production
+build/
+
+# misc
 .DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 *.log
+
+# local env files
 .env*
 !.env.example
+
+# vercel
+.vercel
+
+# netlify
 .netlify/
+
+# firebase
+.firebase/
+*-debug.log
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDEs
+.vscode/
+.idea/
+
+# temporary files
+tsc_help.txt
+DRAFT_firestore.rules
+onco.zip
+deployed.html
+deployed-main.js
+deployed-main.css
+frontend.err.log
+frontend.log
+start-root.err.log
+start-root.log
