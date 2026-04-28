@@ -196,6 +196,10 @@ export default function Home() {
             <Stethoscope size={22} />
           </div>
           <span className="tracking-tight uppercase font-black italic">Onco<span className="text-teal">Health</span></span>
+          <div className="flex items-center gap-1.5 px-2 py-0.5 bg-green-500/10 border border-green-500/20 rounded-full">
+            <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+            <span className="text-[8px] font-black text-green-600 uppercase tracking-widest">Open Now</span>
+          </div>
         </div>
         
         <div className="flex items-center gap-4 lg:gap-8">
@@ -344,10 +348,20 @@ export default function Home() {
                       </div>
 
                       <div className="section-label mb-5">Available Time Slots</div>
-                      <div className="grid grid-cols-4 gap-3 mb-10">
+                      <div className="grid grid-cols-4 gap-3 mb-8">
                         {selectedDoctor.schedule.map((slot) => (
                           <button key={slot} onClick={() => setSelectedSlot(slot)} className={`py-4 rounded-xl text-[10px] font-black transition-all border-2 uppercase tracking-widest ${selectedSlot === slot ? 'bg-teal border-teal text-white shadow-xl shadow-teal/20 scale-105' : 'bg-white/50 border-slate-100 hover:border-teal/30 text-slate-500'}`}>{slot}</button>
                         ))}
+                      </div>
+
+                      <div className="mt-auto bg-slate-50/50 backdrop-blur-sm p-4 rounded-2xl border border-slate-100 flex gap-4 items-start mb-6">
+                        <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm border border-slate-100">
+                          <MapPin size={20} className="text-teal" />
+                        </div>
+                        <div>
+                          <h4 className="text-[10px] font-black text-slate uppercase tracking-widest mb-1">Memorial Research Center</h4>
+                          <p className="text-[10px] text-text-muted leading-relaxed opacity-70">Wing B, Suite 402. Memorial Cancer Research Center, Sector V, Salt Lake.</p>
+                        </div>
                       </div>
 
                       {selectedDate && selectedSlot && (
@@ -481,7 +495,17 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="mt-auto pt-10 border-t border-slate-100 flex flex-col items-center">
+                <div className="mt-10 pt-10 border-t border-slate-100 flex flex-col items-center">
+                  <div className="grid grid-cols-2 gap-4 w-full mb-10">
+                    <div className="bg-slate-50/50 p-4 rounded-2xl border border-slate-100 text-center">
+                      <p className="text-xl font-black text-slate tracking-tighter">15k+</p>
+                      <p className="text-[8px] font-black text-text-muted uppercase tracking-[0.2em] mt-1">Patients</p>
+                    </div>
+                    <div className="bg-slate-50/50 p-4 rounded-2xl border border-slate-100 text-center">
+                      <p className="text-xl font-black text-teal tracking-tighter">98%</p>
+                      <p className="text-[8px] font-black text-text-muted uppercase tracking-[0.2em] mt-1">Success</p>
+                    </div>
+                  </div>
                    <div className="relative w-32 h-32 mb-6">
                     <div className="absolute inset-0 bg-teal/10 rounded-full animate-ping opacity-20" />
                     <div className="absolute inset-4 bg-teal/10 rounded-full animate-pulse opacity-40" />
