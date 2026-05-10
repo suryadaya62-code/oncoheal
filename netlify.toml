@@ -7,7 +7,3 @@
   CI = "false"
   REACT_APP_BACKEND_URL = "https://oncohealth.onrender.com"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
